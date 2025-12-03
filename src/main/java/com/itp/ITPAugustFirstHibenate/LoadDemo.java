@@ -20,14 +20,16 @@ public class LoadDemo
     	SessionFactory factory=cfg.buildSessionFactory();
   
     	Session session1=factory.openSession();			//when we open the session it is blank/empty
-    	Student stud1=session1.load(Student.class, 63);	//select displayed on the console : NO;
+    	Student stud1=session1.load(Student.class, 18);	//Query : NO;
     	System.out.println("Hiiiii");
     	
-    	System.out.println(stud1.getRno());
+    	System.out.println(stud1.getRno());             //Query : NO
     	System.out.println("Byeee");
     	
-    	System.out.println(stud1.getSname());    //Query
-    	session1.close();
+    	System.out.println(stud1.getSname());           //Query : Yes
+    	session1.clear();
+    	
+    	
     	factory.close();
 
     }
