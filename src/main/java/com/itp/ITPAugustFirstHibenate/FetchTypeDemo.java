@@ -2,16 +2,16 @@ package com.itp.ITPAugustFirstHibenate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.itp.ITPAugustFirstHibenate.entity.Student;
+import com.itp.ITPAugustFirstHibenate.entity.Dept;
+import com.itp.ITPAugustFirstHibenate.entity.Employee;
 
 /**
  * Hello world!
  *
  */
-public class App 
+public class FetchTypeDemo 
 {
     public static void main( String[] args )
     {
@@ -20,18 +20,15 @@ public class App
     	SessionFactory factory=cfg.buildSessionFactory();
   
     	Session session1=factory.openSession();
-    	Transaction tx=session1.beginTransaction();		//DML Queries;
+    	Dept dept=session1.get(Dept.class, 1);
     	
-//    	Student s1=new Student(45,"Rohit",87.5);		//commit
     	
-    	Student s1=Student.builder()
-    			.sname("Alice")
-    			.per(78.5)
-    			.build();
+    	for(Employee emp:dept.getEmployees())
+    	{
+    		System.out.println(emp.getEname());
+    	}
     	
-    	session1.save(s1);
-    	tx.commit();
-    	
+    	    	
     	session1.close();
     	factory.close();
 

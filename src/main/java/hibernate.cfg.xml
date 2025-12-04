@@ -9,12 +9,16 @@
 	<property name="connection.username">root</property>
 	<property name="connection.password"></property>
 	<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-	<property name="hbm2ddl.auto">create</property>
+	<property name="hbm2ddl.auto">update</property>
 	<property name="show_sql">true</property>
 	<property name="format_sql">true</property>
 
 
 	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Student"/>
+	<mapping class="com.itp.ITPAugustFirstHibenate.entity.State"/>
+	<mapping class="com.itp.ITPAugustFirstHibenate.entity.ChiefMinister"/>
+	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Dept"/>
+	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Employee"/>
 </session-factory>
 </hibernate-configuration>
 	
