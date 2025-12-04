@@ -11,7 +11,7 @@ import com.itp.ITPAugustFirstHibenate.entity.Student;
  * Hello world!
  *
  */
-public class App 
+public class SecondLeveLCacheDemo 
 {
     public static void main( String[] args )
     {
@@ -19,26 +19,18 @@ public class App
     	cfg.configure("hibernate.cfg.xml");
     	SessionFactory factory=cfg.buildSessionFactory();
   
-    	Session session1=factory.openSession();
-    	Transaction tx=session1.beginTransaction();		//DML Queries;
+    	Session session1=factory.openSession();	
+    	Session session2=factory.openSession();	
     	
-//    	Student s1=new Student(45,"Rohit",87.5);		//commit
+    	Student stud1=session1.get(Student.class, 1);	
+    	System.out.println(stud1);
     	
-    	Student s1=Student.builder()
-    			.sname("Alice")
-    			.per(78.5)
-    			.build();
+    	Student stud2=session2.get(Student.class, 2);	
+    	System.out.println(stud2);
     	
-    	Student s2=Student.builder()
-    			.sname("Ben")
-    			.per(87.5)
-    			.build();
-    	
-    	session1.save(s1);
-    	session1.save(s2);
-    	tx.commit();
     	
     	session1.close();
+    	session2.close();
     	factory.close();
 
     }

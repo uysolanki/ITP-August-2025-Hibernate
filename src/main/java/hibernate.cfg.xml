@@ -12,13 +12,17 @@
 	<property name="hbm2ddl.auto">update</property>
 	<property name="show_sql">true</property>
 	<property name="format_sql">true</property>
-
+ 	<property name="hibernate.cache.use_second_level_cache">true</property>	
+	<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>	
+ 	
 
 	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Student"/>
 	<mapping class="com.itp.ITPAugustFirstHibenate.entity.State"/>
 	<mapping class="com.itp.ITPAugustFirstHibenate.entity.ChiefMinister"/>
 	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Dept"/>
 	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Employee"/>
+	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Actor"/>
+	<mapping class="com.itp.ITPAugustFirstHibenate.entity.Movie"/>
 </session-factory>
 </hibernate-configuration>
 	
