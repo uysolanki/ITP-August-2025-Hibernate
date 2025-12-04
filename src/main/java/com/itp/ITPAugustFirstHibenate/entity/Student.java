@@ -9,8 +9,10 @@ import javax.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
@@ -27,4 +29,6 @@ public class Student {
 	private int temp;
 	
 	static String principalName="Mr Smith";
+	
+	private final int s;
 }
